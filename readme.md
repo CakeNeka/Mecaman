@@ -4,28 +4,7 @@
 
 - Estructura de datos utilizada: `ConcurrentLinkedQueue`
 
-#### Clases
 
-- **`Main`**
-- **`WordProducer`** (Hilos productores)
-  - Selecciona palabras aleatorias fichero csv y las añade a `mainQueue`.
-  - Podemos hacer que sea una interfaz y tener implementaciones como `nounProducer` o `verbProducer`
-- **`WordConsumer`** (Hilos consumidores)
-  - Sacan palabras de `mainQueue` y las procesan
-
-```mermaid
-classDiagram
-    class Main {
-        - Queue<String> mainQueue
-    }
-    class WordProducer {
-        
-    }
-    class WordConsumer {
-        
-    }
-```
-    
 
 ### [Organización (trabajo en equipo)](collaboration.md)
 
