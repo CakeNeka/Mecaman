@@ -4,11 +4,13 @@
 
 Hay que hacer una ficha con información de la estructura que hemos elegido.
 
-- [ ] **Casos de uso**
-- [ ] Características de un **problema** que se puede resolver con esta estructura
-- [ ] Tabla con los **métodos** más relevantes
-
-> Especificar más cuando se publique la tarea
+- [ ] Introducción (Ángel Robles)
+    - ¿Qué es una cola?
+    - ¿Para que sirve una cola?
+- [ ] **Casos de uso** (Leo)
+    - Características que tiene un problema para que pueda resolverse con esta estructura
+- [ ] Tabla con los **métodos** más relevantes (Ángel Contreras)
+    - [Documentación](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ConcurrentLinkedQueue.html)
 
 ### 2. Proyecto Mecaman
 
