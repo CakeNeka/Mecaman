@@ -15,6 +15,8 @@
 
 #### Casos de uso
 
+Una caso de uso puede ser por ejemplo cuando te hace una falta cola y tal (Prueba) leo
+
 #### Métodos de interés
 
 ### Descripción de los ficheros del proyecto
