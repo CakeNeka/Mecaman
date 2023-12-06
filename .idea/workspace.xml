@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="Productor-Consumidor básico utilizando ConcurrentLinkedQueue">
-      <change afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collaboration.md" beforeDir="false" afterPath="$PROJECT_DIR$/collaboration.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mecaman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/WordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/wordgeneration/RandomWordGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/WordList.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resources/WordList.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "leo",
     "last_opened_file_path": "D:/Repos/Mecaman-ConcurrentLinkedQueue",
@@ -60,6 +63,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="mecaman.producerconsumer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Repos\Mecaman-ConcurrentLinkedQueue\resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -93,6 +99,15 @@
       <workItem from="1700208306913" duration="34000" />
       <workItem from="1700209280228" duration="2374000" />
     </task>
+    <task id="LOCAL-00001" summary="Productor-Consumidor básico utilizando ConcurrentLinkedQueue">
+      <option name="closed" value="true" />
+      <created>1701801750658</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701801750658</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -13,7 +13,7 @@ Hay que hacer una ficha con información de la estructura que hemos elegido.
 
 ### 2. Proyecto Mecaman
 
-- [ ] Clase `WordGenerator` (Leo)
+- [ ] Clase `mecaman.wordgeneration.RandomWordGenerator` (Leo)
     - Escoge **palabras aleatorias** a partir de un fichero **csv** (`words.csv`)
     - `words.csv` contiene una lista de palabras comunes
     - Es más eficiente si carga todas las palabras en memoria al iniciarse el programa
@@ -27,11 +27,11 @@ classDiagram
     }
     note for Main "Inicia los hilos y la cola"
      
-    class WordGenerator {
+    class mecaman.wordgeneration.RandomWordGenerator {
         + String getWord()
     }
-    <<interface>> WordGenerator
-    note for WordGenerator "Genera palabras aleatorias"
+    <<interface>> mecaman.wordgeneration.RandomWordGenerator
+    note for mecaman.wordgeneration.RandomWordGenerator "Genera palabras aleatorias"
 
     class CsvWordGenerator {
         - String csvPath
@@ -47,8 +47,8 @@ classDiagram
 
     }
 
-    WordProducer *-- WordGenerator
-    WordGenerator <|-- CsvWordGenerator : implements
+    WordProducer *-- mecaman.wordgeneration.RandomWordGenerator
+    mecaman.wordgeneration.RandomWordGenerator <|-- CsvWordGenerator : implements
 ```
 
 ---

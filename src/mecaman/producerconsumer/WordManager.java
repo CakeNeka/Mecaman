@@ -1,20 +1,25 @@
 package mecaman.producerconsumer;
 
+import mecaman.wordgeneration.RandomWordGenerator;
+
+import java.io.IOException;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Semaphore;
 
 public class WordManager {
     private boolean active = true; // Cambiar a falso para finalizar el programa
-    private int maxSize;
+    private int maxSize;    // Tamaño máximo de la cola
     private ConcurrentLinkedQueue<String> wordsQueue;
     private Semaphore producerSemaphore;
     private Semaphore consumerSemaphore;
+    private Semaphore mutex; // Utilizado para generar la palabra aleatoria
 
     public WordManager(int maxSize, ConcurrentLinkedQueue<String> wordsQueue) {
         this.maxSize = maxSize;
         this.wordsQueue = wordsQueue;
         producerSemaphore = new Semaphore(maxSize);
         consumerSemaphore = new Semaphore(0);
+        mutex = new Semaphore(1);
     }
 
     /**
@@ -29,9 +34,9 @@ public class WordManager {
         try {
             // Aquí el hilo productor espera hasta que haya sitio en la cola para añadir más palabras
             producerSemaphore.acquire();
-            String word = generateWord(); // Placeholder, cambiar por clase de Leo
+            String word = generateWord();
             System.out.printf("%s añade %s\n", producer.getName(), word);
-            Thread.sleep((long) (Math.random() * 500));
+            Thread.sleep((long) (Math.random() * 500)); // El hilo es suspendido entre 0 y 0.5 segundos
             wordsQueue.add(word);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -66,7 +71,17 @@ public class WordManager {
     }
 
     private String generateWord() {
-        return "Macarrones";
+        String word = null;
+        try {
+            mutex.acquire();
+            word = RandomWordGenerator.getInstance().getRandomWord();
+            mutex.release();
+        } catch (IOException e) {
+            System.err.println("Imposible generar una palabra");
+        } catch (InterruptedException e) {
+            System.err.println("Error en la exclusión mutua");
+        }
+        return word;
     }
 
     public boolean isActive() {

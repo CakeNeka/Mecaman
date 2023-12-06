@@ -10,7 +10,9 @@ public class WordConsumer extends Thread{
 
     @Override
     public void run() {
-        while (wordManager.isActive())
+        // Antes de finalizar, el consumidor procesa todas las palabras
+        // que quedan en la cola
+        while (wordManager.isActive() || wordManager.getOccupancyPercentage() > 0)
             wordManager.typeWord(this);
     }
 }
