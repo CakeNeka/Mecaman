@@ -38,6 +38,12 @@ Estructura Elegida: ConcurrentLinkedQueue
 
 Puees una estructura tal (prueba) leo, esto es una modificación desde la rama LEO
 
+### Colas
+ - Estructura de datos que almacena elementos en una lista antes de ser procesados y que permite acceder a los datos por uno de los dos extremos de la lista.
+ - Los elementos de esta estructura suelen almacenar los elementos en forma *FIFO*.
+ - Las colas proporcionan operaciones de inserción, extracción e inspección.
+ - Las colas en Java se implementan como una *Interfaz*, que extienden de *Collection*.
+
 ### Casos de uso
   - Características que tiene un problema para que pueda resolverse con esta estructura
     - No tiene que ser procesado inmediatamente, pero sí en su orden de llegada. Es decir, el primero que llega, primero que termina (FIFO).
