@@ -27,11 +27,11 @@ classDiagram
     }
     note for Main "Inicia los hilos y la cola"
      
-    class mecaman.wordgeneration.RandomWordGenerator {
+    class RandomWordGenerator {
         + String getWord()
     }
-    <<interface>> mecaman.wordgeneration.RandomWordGenerator
-    note for mecaman.wordgeneration.RandomWordGenerator "Genera palabras aleatorias"
+    <<interface>> RandomWordGenerator
+    note for RandomWordGenerator "Genera palabras aleatorias"
 
     class CsvWordGenerator {
         - String csvPath
@@ -47,8 +47,8 @@ classDiagram
 
     }
 
-    WordProducer *-- mecaman.wordgeneration.RandomWordGenerator
-    mecaman.wordgeneration.RandomWordGenerator <|-- CsvWordGenerator : implements
+    WordProducer *-- RandomWordGenerator
+    RandomWordGenerator <|-- CsvWordGenerator : implements
 ```
 
 ---
