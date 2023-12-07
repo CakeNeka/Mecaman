@@ -4,6 +4,7 @@ import mecaman.producerconsumer.WordConsumer;
 import mecaman.producerconsumer.WordManager;
 import mecaman.producerconsumer.WordProducer;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;

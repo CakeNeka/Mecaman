@@ -13,13 +13,14 @@ public class WordManager {
     private Semaphore producerSemaphore;
     private Semaphore consumerSemaphore;
     private Semaphore mutex; // Utilizado para generar la palabra aleatoria
-
+    private RandomWordGenerator wordGenerator;
     public WordManager(int maxSize, ConcurrentLinkedQueue<String> wordsQueue) {
         this.maxSize = maxSize;
         this.wordsQueue = wordsQueue;
         producerSemaphore = new Semaphore(maxSize);
         consumerSemaphore = new Semaphore(0);
         mutex = new Semaphore(1);
+        wordGenerator = RandomWordGenerator.getInstance();
     }
 
     /**
@@ -30,6 +31,7 @@ public class WordManager {
         return ((double) consumerSemaphore.availablePermits() / maxSize);
     }
 
+    // Método llamado por el PRODUCTOR (añade palabras a la cola y espera entre 0 y 0.5 segundos)
     public void addWord(WordProducer producer) {
         try {
             // Aquí el hilo productor espera hasta que haya sitio en la cola para añadir más palabras
@@ -39,13 +41,14 @@ public class WordManager {
             Thread.sleep((long) (Math.random() * 500)); // El hilo es suspendido entre 0 y 0.5 segundos
             wordsQueue.add(word);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            System.err.println("Se ha producido un error durante la ejecución del productor");
         } finally {
             // Se ha añadido una palabra, ahora un consumidor puede procesarla
             consumerSemaphore.release();
         }
     }
 
+    // Método llamado por el CONSUMIDOR
     public void typeWord(WordConsumer consumer) {
         try {
             // Aquí el hilo consumidor espera en caso de que la cola esté vacía
@@ -63,7 +66,7 @@ public class WordManager {
 
             System.out.printf("%s escribe %s\n", consumer.getName(), new String(reversedWordArray));
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            System.err.println("Se ha producido un error durante la ejecución del consumidor");
         } finally {
             // Se ha eliminado una palabra de la cola, ahora un productor puede añadir otra
             producerSemaphore.release();
@@ -74,10 +77,8 @@ public class WordManager {
         String word = null;
         try {
             mutex.acquire();
-            word = RandomWordGenerator.getInstance().getRandomWord();
+            word = wordGenerator.getRandomWord();
             mutex.release();
-        } catch (IOException e) {
-            System.err.println("Imposible generar una palabra");
         } catch (InterruptedException e) {
             System.err.println("Error en la exclusión mutua");
         }

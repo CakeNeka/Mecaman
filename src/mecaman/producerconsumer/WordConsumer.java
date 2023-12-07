@@ -1,7 +1,7 @@
 package mecaman.producerconsumer;
 
 public class WordConsumer extends Thread{
-    WordManager wordManager;
+    private WordManager wordManager;
 
     public WordConsumer(WordManager wordManager, String name) {
         super(name);
