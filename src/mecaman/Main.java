@@ -4,7 +4,6 @@ import mecaman.producerconsumer.WordConsumer;
 import mecaman.producerconsumer.WordManager;
 import mecaman.producerconsumer.WordProducer;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
@@ -14,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * Hilo principal. Lanza los hilos y a continuación controla la prioridad
  * de productores y consumidores según la ocupación de la cola.
- *
  * Finaliza la ejecución del programa después del tiempo indicado
  */
 public class Main {
