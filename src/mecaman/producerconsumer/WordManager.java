@@ -73,11 +73,19 @@ public class WordManager {
         }
     }
 
+    /**
+     * Genera una palabra aleatoria
+     * @return Devuelve un String que contiene la palabra generada
+     */
+
     private String generateWord() {
         String word = null;
         try {
+            //Activamos el semaforo Mutex
             mutex.acquire();
+            //Generamos la palabra llamando a wordGeneratore
             word = wordGenerator.getRandomWord();
+            //Liberamos el semaforo
             mutex.release();
         } catch (InterruptedException e) {
             System.err.println("Error en la exclusión mutua");
@@ -85,10 +93,18 @@ public class WordManager {
         return word;
     }
 
+    /**
+     * Comprueba si el WordManager esta activo
+     * @return Devuelve true si esta activo
+     */
     public boolean isActive() {
         return active;
     }
 
+    /**
+     * Establece el estado de active
+     * @param active Le pasamos una variable booleana para cambiar el estado
+     */
     public void setActive(boolean active) {
         this.active = active;
     }

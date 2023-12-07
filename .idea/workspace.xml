@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="Productor-Consumidor básico utilizando ConcurrentLinkedQueue">
+    <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="Generador de Logger CSV que contiene datos de ejecucion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/MecamanStateLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/MecamanStateLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/wordgeneration/RandomWordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/wordgeneration/RandomWordGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,25 +37,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Angel/IdeaProjects/Mecaman-ConcurrentLinkedQueue",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Angel/IdeaProjects/Mecaman-ConcurrentLinkedQueue&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="mecaman" />
@@ -94,7 +96,8 @@
       <updated>1699634308497</updated>
       <workItem from="1700208306913" duration="34000" />
       <workItem from="1700209280228" duration="2374000" />
-      <workItem from="1701968225460" duration="2049000" />
+      <workItem from="1701968225460" duration="2257000" />
+      <workItem from="1701971021792" duration="1739000" />
     </task>
     <task id="LOCAL-00001" summary="Productor-Consumidor básico utilizando ConcurrentLinkedQueue">
       <option name="closed" value="true" />
@@ -112,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701970324254</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Generador de Logger CSV que contiene datos de ejecucion">
+      <option name="closed" value="true" />
+      <created>1701970649195</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701970649195</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,7 +142,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Productor-Consumidor básico utilizando ConcurrentLinkedQueue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Productor-Consumidor básico utilizando ConcurrentLinkedQueue" />
+    <MESSAGE value="Generador de Logger CSV que contiene datos de ejecucion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generador de Logger CSV que contiene datos de ejecucion" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Mecaman_ConcurrentLinkedQueue$Main.ic" NAME="Main Coverage Results" MODIFIED="1701801575719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -13,8 +13,12 @@ public class RandomWordGenerator {
     private final Path FILE_PATH = Path.of(FILE_NAME).toAbsolutePath();
     private List<String> wordList;
 
+    /**
+     * Constructor que lee todas las palabras del fichero FILE_NAME
+     */
     private RandomWordGenerator() {
         try {
+            //Lee todas las lineas
             wordList = Files.readAllLines(FILE_PATH);
         } catch (IOException e) {
             System.err.println("No se ha encontrado el archivo, utilizando PALABRAS DE EMERGENCIA");
@@ -23,12 +27,22 @@ public class RandomWordGenerator {
         }
     }
 
+    /**
+     * Metodo de patron SingleTone
+     * @return Devuelve un objeto RandomWordGenerator
+     */
     public static RandomWordGenerator getInstance() {
+        //Si la instancia es null, declara un nuevo objeto
         if (instance == null) {
             instance = new RandomWordGenerator();
         }
         return instance;
     }
+
+    /**
+     * Metodo para obtener una palabra aleatoria del fichero
+     * @return Devuelve un String con la palabra obtenida
+     */
 
     public String getRandomWord() {
         int random = ThreadLocalRandom.current().nextInt(0, wordList.size());

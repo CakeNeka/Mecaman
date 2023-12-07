@@ -53,7 +53,7 @@ public class MecamanStateLogger {
             //Cerramos el BufferedWriter
             bw.close();
         } catch (IOException e) {
-            e.getMessage();
+            System.out.println("Error al generar el archivo.");
         }
     }
 
@@ -76,7 +76,7 @@ public class MecamanStateLogger {
             //Cerramos el BufferedWriter
             bw.close();
         } catch (IOException e) {
-            e.getMessage();
+            System.out.println("Error al escribir el archivo.");
         }
     }
 }
