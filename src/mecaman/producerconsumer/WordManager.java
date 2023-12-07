@@ -2,7 +2,11 @@ package mecaman.producerconsumer;
 
 import mecaman.wordgeneration.RandomWordGenerator;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Semaphore;
 
@@ -14,13 +18,16 @@ public class WordManager {
     private Semaphore consumerSemaphore;
     private Semaphore mutex; // Utilizado para generar la palabra aleatoria
     private RandomWordGenerator wordGenerator;
-    public WordManager(int maxSize, ConcurrentLinkedQueue<String> wordsQueue) {
+    private String nomFichero; //fichero en el que se guardaran las palabras que se consuman en la ejecucion
+    public WordManager(int maxSize, ConcurrentLinkedQueue<String> wordsQueue, String nomFichero) {
         this.maxSize = maxSize;
         this.wordsQueue = wordsQueue;
         producerSemaphore = new Semaphore(maxSize);
         consumerSemaphore = new Semaphore(0);
         mutex = new Semaphore(1);
         wordGenerator = RandomWordGenerator.getInstance();
+        this.nomFichero = nomFichero;
+
     }
 
     /**
@@ -62,6 +69,25 @@ public class WordManager {
             while (j >= 0) {
                 reversedWordArray[j--] = word.charAt(i++);
                 Thread.sleep(20);
+            }
+            //una vez procesada la palabra procede a escribirla en el fichero
+            try{
+                File fichero = new File(this.nomFichero);
+                //Comprobamos si existe el fichero
+                if (!Files.exists(fichero.toPath())){
+                    //Si no existe, lo crea
+                    Files.createFile(fichero.toPath());
+                }
+                FileWriter fw = new FileWriter(fichero, true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                //Escribimos la palabra
+                bw.write(new String(reversedWordArray));
+                //Añadimos un salto de linea
+                bw.newLine();
+                //Cerramos el BufferedWriter
+                bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
             System.out.printf("%s escribe %s\n", consumer.getName(), new String(reversedWordArray));

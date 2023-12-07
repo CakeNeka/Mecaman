@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="Generador de Logger CSV que contiene datos de ejecucion">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/MecamanStateLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/MecamanStateLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/WordList.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resources/WordList.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mecaman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/wordgeneration/RandomWordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/wordgeneration/RandomWordGenerator.java" afterDir="false" />
+    </list>
+    <list id="9dcdc249-cbab-4901-98cd-18c9ca41a3dd" name="Changes by Angel" comment="">
+      <change beforePath="$PROJECT_DIR$/src/mecaman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +29,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/mecaman/Main.java">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="9" changelist="60e3a445-7215-47a0-ac99-1965bfbf9554" />
+        <range start1="24" end1="24" start2="26" end2="35" changelist="60e3a445-7215-47a0-ac99-1965bfbf9554" />
+        <range start1="25" end1="26" start2="36" end2="37" changelist="9dcdc249-cbab-4901-98cd-18c9ca41a3dd" />
+        <range start1="29" end1="29" start2="40" end2="41" changelist="60e3a445-7215-47a0-ac99-1965bfbf9554" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -37,25 +51,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Angel/IdeaProjects/Mecaman-ConcurrentLinkedQueue&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/extre/Desktop/github/Mecaman-ConcurrentLinkedQueue",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="mecaman" />

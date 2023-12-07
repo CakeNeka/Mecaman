@@ -5,6 +5,8 @@ import mecaman.producerconsumer.WordManager;
 import mecaman.producerconsumer.WordProducer;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -22,10 +24,20 @@ public class Main {
     private static final int QUEUE_SIZE = 100;  // Tamaño máximo de la cola
     private static final int DURATION = 30;     // El programa finaliza cuando pasen esta cantidad de segundos
     public static void main(String[] args) {
+        //Crea un fichero que tiene como nombre la fecha y hora en la que se ejecuto el programa, y que almacenara las palabras escritas
+        // en el orden en el que las consume
+
+        //damos formato a la fecha
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+        LocalDateTime now = LocalDateTime.now();
+        String fileName = dtf.format(now);
+
+        String nombreFichero ="resources/historial/" + fileName;
         ConcurrentLinkedQueue<String> wordsQueue = new ConcurrentLinkedQueue<>();
         WordManager wordManager = new WordManager(QUEUE_SIZE, wordsQueue);
         Thread[] producers = new Thread[PRODUCER_THREADS];
         Thread[] consumers = new Thread[CONSUMER_THREADS];
+
 
         // Lanza hilos productores
         for (int i = 0; i < PRODUCER_THREADS; i++) {
