@@ -25,7 +25,7 @@ Estructura Elegida: ConcurrentLinkedQueue
 >
 > - José Leonardo Ortega Pinto ([Leo0756](https://github.com/leo0756))
 > - Ángel Robles Carrillo ([Arobles912](https://github.com/Arobles912))
-> - Ángel Contreras Jimenez ([AngiePlaysOsu](https://github.com/AngiePlaysOsu))
+> - Ángel Contreras Jiménez ([AngiePlaysOsu](https://github.com/AngiePlaysOsu))
 > - Manuel Alejandro Cortés Carmona ([Iridescent1010](https://github.com/Iridescent100))
 > - Martina Victoria López Quijada ([CakeNeka](https://github.com/cakeneka))
 
@@ -124,7 +124,7 @@ System.out.printf("%s escribe %s\n", consumer.getName(), new String(reversedWord
 > - **JDK:** OpenJDK 21
 > 
 > ```
-> Como punto de partida hemos utilizado ejemplos vistos en clase sobre el patrón productor - consumidor.
+> Como punto de partida hemos utilizado ejemplos vistos en clase sobre el patrón productor-consumidor.
 > ```
 
 El código está organizado por **paquetes**. Utilizamos también un archivo de texto (`WordList.csv`)
@@ -133,7 +133,7 @@ para la generación de palabras aleatorias.
 ### Archivos de texto
 
 <!-- Añadir archivos relacinados con el registro del tamaño de la cola -->
-- [`resources/WordList.csv`](resources/WordList.csv) Lista con 130 palabras comunes.
+- [`resources/WordList.csv`](resources/WordList.csv) Lista con 130 palabras frecuentes en español.
 - [`readme.md`](readme.md) Explicación y descripción del proyecto.
 - [`collaboration.md`](collaboration.md) Para la organización del trabajo en equipo.
 
@@ -171,34 +171,53 @@ para la generación de palabras aleatorias.
 ### Diagrama de clases
 
 ```mermaid
+---
+title: MECAMAN
+---
 classDiagram
+
     class Main {
         - Queue<String> mainQueue
     }
-    note for Main "Inicia los hilos y la cola"
+    note for Main "Inicia los hilos y la cola. \nControla la prioridad de los hilos"
      
     class RandomWordGenerator {
-        + String getWord()
+        - String FILE_NAME
+        + String getRandomWord()
     }
-    <<interface>> RandomWordGenerator
-    note for RandomWordGenerator "Genera palabras aleatorias"
-
-    class CsvWordGenerator {
-        - String csvPath
-        + String getWord()
-    } 
+    note for RandomWordGenerator "Genera palabras aleatorias\na partir de un fichero"
 
     class WordProducer {
-
+        - WordManager wordManager
     }
-    note for WordProducer "<b>Runnable.</b> Añade palabras\naleatorias a la cola"
+    note for WordProducer "Llama a addWord()\nde WordManager"
     
     class WordConsumer {
-
+        - WordManager wordManager
     }
+    note for WordConsumer "Llama a typeWord()\nde WordManager"
+    
+    class WordManager {
+        - boolean active
+        - int maxSize
+        - ConcurrentLinkedQueue~String~ wordsQueue
+        - Semaphore producerSemaphore
+        - Semaphore consumerSemaphore
+        - Semaphore mutex
+        - RandomWordGenerator wordGenerator
 
-    WordProducer *-- RandomWordGenerator
-    RandomWordGenerator <|-- CsvWordGenerator : implements
+        + getOccupancyPercentage() int
+        + addWord(WordProducer producer) 
+        + typeWord(WordConsumer consumer)
+    }
+    note for WordManager "Controla concurrencia entre hilos\nproductores y consumidores"
+
+    WordManager *-- RandomWordGenerator
+    WordConsumer *-- WordManager
+    WordProducer *-- WordManager
+
+    Thread <|-- WordProducer : extends
+    Thread <|-- WordConsumer : extends
 ```
 
 ---
