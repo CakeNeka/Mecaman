@@ -128,6 +128,88 @@ Puees una estructura tal (prueba) leo, esto es una modificación desde la rama L
 > Como punto de partida hemos utilizado ejemplos vistos en clase sobre el patrón productor - consumidor.
 > ```
 
+El código está organizado por **paquetes**. Utilizamos también un archivo de texto (`WordList.csv`)
+para la generación de palabras aleatorias.
+
+### Archivos de texto
+
+<!-- Añadir archivos relacinados con el registro del tamaño de la cola -->
+- [`resources/WordList.csv`](resources/WordList.csv) Lista con 130 palabras comunes
+- [`readme.md`](readme.md) Explicación y descripción del proyecto
+- [`collaboration.md`](collaboration.md) Para la organización del trabajo en equipo
+
+### Archivos `.java`
+
+##### Paquete `mecaman`
+
+- [`Main.java`](src/mecaman/Main.java)
+   - Instancia la estructura de datos (`ConcurrentLinkedQueue`)
+   - Instancia la clase que controla la concurrencia (`WordManager`)
+   - Instancia y lanza los hilos productores (`WordProducer`) y consumidores (`WordConsumer`)
+   - Utiliza un `ScheduledExecutorService` para ejecutar repetidamente un método que controla la prioridad de productores y consumidores.
+   - Finaliza la ejecución del programa después de un tiempo determinado
+
+##### Paquete `mecaman.producerconsumer`
+
+- [`WordManager.java`](src/mecaman/producerconsumer/WordManager.java)
+  - Equivalente a `Almacen` en el ejemplo visto en clase.
+  - controla la concurrencia y el tamaño máximo de la cola con objetos `Semaphore`.
+- [`WordConsumer.java`](src/mecaman/producerconsumer/WordConsumer.java)
+  - Hereda de la clase `Thread`
+  - Mientras está activo, ejecuta el método `typeWord()` de `WordManager`
+- [`WordProducer.java`](src/mecaman/producerconsumer/WordProducer.java)
+  - Hereda de la clase `Thread`
+  - Mientras está activo, ejecuta el método `addWord()` de `WordManager`
+ 
+##### Paquete `mecaman.wordgeneration`
+
+- [`RandomWordGenerator.java`](src/mecaman/wordgeneration/RandomWordGenerator.java)
+  - Clase **singleton** (instancia única)
+  - Lee el archivo de texto [`WordList.csv`](resources/WordList.csv) y almacena todas las palabras que contiene en una lista
+    - Si el archivo no existe, informa del error y rellena la lista con unas palabras alternativas 
+  - `getRandomWord()` devuelve una palabra aleatoria selecccionada entre las leídas anteriormente
+
+### Diagrama de clases
+
+```mermaid
+classDiagram
+    class Main {
+        - Queue<String> mainQueue
+    }
+    note for Main "Inicia los hilos y la cola"
+     
+    class RandomWordGenerator {
+        + String getWord()
+    }
+    <<interface>> RandomWordGenerator
+    note for RandomWordGenerator "Genera palabras aleatorias"
+
+    class CsvWordGenerator {
+        - String csvPath
+        + String getWord()
+    } 
+
+    class WordProducer {
+
+    }
+    note for WordProducer "<b>Runnable.</b> Añade palabras\naleatorias a la cola"
+    
+    class WordConsumer {
+
+    }
+
+    WordProducer *-- RandomWordGenerator
+    RandomWordGenerator <|-- CsvWordGenerator : implements
+```
+
 ---
 
-### [Organización (trabajo en equipo)](collaboration.md)
+<pre align="center">
+___  ___ _____ _____   ___  ___  ___  ___   _   _ 
+|  \/  ||  ___/  __ \ / _ \ |  \/  | / _ \ | \ | |
+| .  . || |__ | /  \// /_\ \| .  . |/ /_\ \|  \| |
+| |\/| ||  __|| |    |  _  || |\/| ||  _  || . ` |
+| |  | || |___| \__/\| | | || |  | || | | || |\  |
+\_|  |_/\____/ \____/\_| |_/\_|  |_/\_| |_/\_| \_/
+</pre>
+<p align="right"><sub>Texto hecho con <a href="https://patorjk.com/software/taag/" target="_blank">Text to ASCII Art</a></sub></p>
