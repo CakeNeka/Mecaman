@@ -13,23 +13,69 @@ Estructura Elegida: ConcurrentLinkedQueue
 </div>
 
 <p align="center">
-  <a href="#-descripción">Descripción</a> •
-  <a href="#-datos-de-concurrentlinkedqueue">Ficha de la estructura</a> •
-  <a href="#-ficheros-del-proyecto">Ficheros del proyecto</a> •
+  <a href="#-descripción-del-proyecto">Descripción</a> •
+  <a href="#-datos-de-concurrentlinkedqueue">Ficha de la estructura de datos</a> •
+  <a href="#-ficheros-del-proyecto">Explicación de los ficheros del proyecto</a> •
   <a href="./collaboration.md">Trabajo en equipo</a>
 </p>
 
-## 📜 Descripción
+## 📜 Descripción del proyecto
 
-> ### ⌨ Desarrollado por
+> ### ⌨ Integrantes del grupo
 >
 > - José Leonardo Ortega Pinto ([Leo0756](https://github.com/leo0756))
-> - Martina López Quijada ([CakeNeka](https://github.com/cakeneka))
 > - Ángel Robles Carrillo ([Arobles912](https://github.com/Arobles912))
 > - Ángel Contreras Jimenez ([AngiePlaysOsu](https://github.com/AngiePlaysOsu))
 > - Manuel Alejandro Cortés Carmona ([Iridescent1010](https://github.com/Iridescent100))
+> - Martina Victoria López Quijada ([CakeNeka](https://github.com/cakeneka))
 
-> ### ⚡ Mecaman
+ ### ⚡ Mecaman
+ 
+ Nuestra idea incial era hacer un juego de **mecanografía**. Teníamos un hilo
+ que añadía palabras a una cola y otro que detectaba la entrada del usuario para
+ eliminar la última palabra de la cola cuando el usuario la escribese.
+
+ De esta forma solo había un hilo productor y otro consumidor. Como el patrón
+ productor-consumidor suele tener en cuenta **varios hilos productores** y **varios
+ hilos consumidores** finalmente decidimos hacer que la entrada del usuario fuera
+ **simulada**, es decir, cada hilo consumidor elimina una palabra de la cola y espera
+ una cantidad de milisegundos por cada letra que contenga la palabra eliminada.
+ 
+ Para añadir algo de complejidad, el hilo consumidor también **invierte la palabra**
+ que elimina de la cola antes de mostrarla por pantalla (por ejemplo de `Amor` a `romA`)
+ y utilizamos un `ScheduledExecutorService` para ejecutar cada cierto tiempo un
+ método que **controla la prioridad** de los hilos según el porcentaje de ocupación de la cola
+ (Si el tamaño de la cola es más cercano al tamaño máximo, aumenta la prioridad de los consumidores.
+ Si el tamaño de la cola es más cercano a 0, aumenta la prioridad de los productores)
+
+ Parte del código ejecutado que ejecuta el **hilo productor**:
+ 
+```java
+// Aquí el hilo productor espera si no hay sitio en la cola para añadir más palabras
+producerSemaphore.acquire();
+String word = generateWord();
+System.out.printf("%s añade %s\n", producer.getName(), word);
+Thread.sleep((long) (Math.random() * 500)); // El hilo es suspendido entre 0 y 0.5 segundos
+wordsQueue.add(word);
+```
+
+ Parte del código que ejecuta el **hilo consumidor**:
+
+```java
+// Aquí el hilo consumidor espera en caso de que la cola esté vacía
+consumerSemaphore.acquire();
+String word = wordsQueue.remove();
+
+// Consumidor procesa palabra (le da la vuelta)
+char[] reversedWordArray = new char[word.length()];
+int j = word.length() - 1;
+int i = 0;
+while (j >= 0) {
+    reversedWordArray[j--] = word.charAt(i++);
+    Thread.sleep(20);
+}
+System.out.printf("%s escribe %s\n", consumer.getName(), new String(reversedWordArray));
+```
 
 
 ## ⚙ Datos de `ConcurrentLinkedQueue`
@@ -78,8 +124,8 @@ Puees una estructura tal (prueba) leo, esto es una modificación desde la rama L
 > - **IDE:** IntelliJ IDEA Community
 > - **JDK:** OpenJDK 21
 > 
-> ```yaml
-> Como punto de partida hemos utilizado ejemplos de clase,  
+> ```
+> Como punto de partida hemos utilizado ejemplos vistos en clase sobre el patrón productor - consumidor.
 > ```
 
 ---
