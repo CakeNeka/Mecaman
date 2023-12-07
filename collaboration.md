@@ -19,37 +19,11 @@ Hay que hacer una ficha con información de la estructura que hemos elegido.
     - Es más eficiente si carga todas las palabras en memoria al iniciarse el programa
 - [ ] Clase `WordProducer`
 - [ ] Clase `WordConsumer`
+- 
+- [ ] Clase `StateLogger` (Ángel Robles)
+  - La clase está creada, hay que implementar la funcionalidad.
+  - Detalles en el propio programa
 
-```mermaid
-classDiagram
-    class Main {
-        - Queue<String> mainQueue
-    }
-    note for Main "Inicia los hilos y la cola"
-     
-    class RandomWordGenerator {
-        + String getWord()
-    }
-    <<interface>> RandomWordGenerator
-    note for RandomWordGenerator "Genera palabras aleatorias"
-
-    class CsvWordGenerator {
-        - String csvPath
-        + String getWord()
-    } 
-
-    class WordProducer {
-
-    }
-    note for WordProducer "<b>Runnable.</b> Añade palabras\naleatorias a la cola"
-    
-    class WordConsumer {
-
-    }
-
-    WordProducer *-- RandomWordGenerator
-    RandomWordGenerator <|-- CsvWordGenerator : implements
-```
 
 ---
 

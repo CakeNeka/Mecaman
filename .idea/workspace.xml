@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="Productor-Consumidor básico utilizando ConcurrentLinkedQueue">
+    <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/mecaman/MecamanStateLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collaboration.md" beforeDir="false" afterPath="$PROJECT_DIR$/collaboration.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mecaman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordConsumer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/wordgeneration/RandomWordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/wordgeneration/RandomWordGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +59,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="mecaman" />
       <recent name="mecaman.producerconsumer" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Repos\Mecaman-ConcurrentLinkedQueue\resources" />
+      <recent name="D:\Repos\Mecaman-ConcurrentLinkedQueue" />
     </key>
   </component>
   <component name="RunManager">

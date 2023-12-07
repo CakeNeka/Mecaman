@@ -34,7 +34,7 @@ public class WordManager {
     // Método llamado por el PRODUCTOR (añade palabras a la cola y espera entre 0 y 0.5 segundos)
     public void addWord(WordProducer producer) {
         try {
-            // Aquí el hilo productor espera hasta que haya sitio en la cola para añadir más palabras
+            // Aquí el hilo productor espera si no hay sitio en la cola para añadir más palabras
             producerSemaphore.acquire();
             String word = generateWord();
             System.out.printf("%s añade %s\n", producer.getName(), word);
