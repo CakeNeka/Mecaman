@@ -48,7 +48,7 @@ Estructura Elegida: ConcurrentLinkedQueue
  (Si el tamaño de la cola es más cercano al tamaño máximo, aumenta la prioridad de los consumidores.
  Si el tamaño de la cola es más cercano a 0, aumenta la prioridad de los productores)
 
- Parte del código ejecutado que ejecuta el **hilo productor**:
+ Parte del código que ejecuta el **hilo productor**:
  
 ```java
 // Aquí el hilo productor espera si no hay sitio en la cola para añadir más palabras
@@ -80,17 +80,15 @@ System.out.printf("%s escribe %s\n", consumer.getName(), new String(reversedWord
 
 ## ⚙ Datos de `ConcurrentLinkedQueue`
 
-### Introducción
+### ¿Qué es una cola?
 
-Puees una estructura tal (prueba) leo, esto es una modificación desde la rama LEO
-
-### Colas
  - Estructura de datos que almacena elementos en una lista antes de ser procesados y que permite acceder a los datos por uno de los dos extremos de la lista.
  - Los elementos de esta estructura suelen almacenar los elementos en forma *FIFO*.
  - Las colas proporcionan operaciones de inserción, extracción e inspección.
  - Las colas en Java se implementan como una *Interfaz*, que extienden de *Collection*.
 
 ### Casos de uso
+
   - Características que tiene un problema para que pueda resolverse con esta estructura
     - No tiene que ser procesado inmediatamente, pero sí en su orden de llegada. Es decir, el primero que llega, primero que termina (FIFO).
     - Un recurso que se comparte con varios consumidores.
@@ -103,6 +101,7 @@ Puees una estructura tal (prueba) leo, esto es una modificación desde la rama L
       a través de la red. Las colas pueden ayudar a garantizar que los paquetes se entreguen en el orden correcto y a la tarifa adecuada.
 
 ### Métodos de interés
+
 | Metodo | Descripción | Tipo |
 | --- | --- | --- |
 | add(E e) | Inserta el elemento especificado al final de esta cola. | boolean | 
@@ -134,20 +133,20 @@ para la generación de palabras aleatorias.
 ### Archivos de texto
 
 <!-- Añadir archivos relacinados con el registro del tamaño de la cola -->
-- [`resources/WordList.csv`](resources/WordList.csv) Lista con 130 palabras comunes
-- [`readme.md`](readme.md) Explicación y descripción del proyecto
-- [`collaboration.md`](collaboration.md) Para la organización del trabajo en equipo
+- [`resources/WordList.csv`](resources/WordList.csv) Lista con 130 palabras comunes.
+- [`readme.md`](readme.md) Explicación y descripción del proyecto.
+- [`collaboration.md`](collaboration.md) Para la organización del trabajo en equipo.
 
 ### Archivos `.java`
 
 ##### Paquete `mecaman`
 
 - [`Main.java`](src/mecaman/Main.java)
-   - Instancia la estructura de datos (`ConcurrentLinkedQueue`)
-   - Instancia la clase que controla la concurrencia (`WordManager`)
-   - Instancia y lanza los hilos productores (`WordProducer`) y consumidores (`WordConsumer`)
+   - Instancia la estructura de datos (`ConcurrentLinkedQueue`).
+   - Instancia la clase que controla la concurrencia (`WordManager`).
+   - Instancia y lanza los hilos productores (`WordProducer`) y consumidores (`WordConsumer`).
    - Utiliza un `ScheduledExecutorService` para ejecutar repetidamente un método que controla la prioridad de productores y consumidores.
-   - Finaliza la ejecución del programa después de un tiempo determinado
+   - Finaliza la ejecución del programa después de un tiempo determinado.
 
 ##### Paquete `mecaman.producerconsumer`
 
@@ -155,19 +154,19 @@ para la generación de palabras aleatorias.
   - Equivalente a `Almacen` en el ejemplo visto en clase.
   - controla la concurrencia y el tamaño máximo de la cola con objetos `Semaphore`.
 - [`WordConsumer.java`](src/mecaman/producerconsumer/WordConsumer.java)
-  - Hereda de la clase `Thread`
-  - Mientras está activo, ejecuta el método `typeWord()` de `WordManager`
+  - Hereda de la clase `Thread`.
+  - Mientras está activo, ejecuta el método `typeWord()` de `WordManager`.
 - [`WordProducer.java`](src/mecaman/producerconsumer/WordProducer.java)
-  - Hereda de la clase `Thread`
-  - Mientras está activo, ejecuta el método `addWord()` de `WordManager`
+  - Hereda de la clase `Thread`.
+  - Mientras está activo, ejecuta el método `addWord()` de `WordManager`.
  
 ##### Paquete `mecaman.wordgeneration`
 
 - [`RandomWordGenerator.java`](src/mecaman/wordgeneration/RandomWordGenerator.java)
-  - Clase **singleton** (instancia única)
-  - Lee el archivo de texto [`WordList.csv`](resources/WordList.csv) y almacena todas las palabras que contiene en una lista
-    - Si el archivo no existe, informa del error y rellena la lista con unas palabras alternativas 
-  - `getRandomWord()` devuelve una palabra aleatoria selecccionada entre las leídas anteriormente
+  - Clase **singleton** (instancia única).
+  - Lee el archivo de texto [`WordList.csv`](resources/WordList.csv) y almacena todas las palabras que contiene en una lista.
+    - Si el archivo no existe, informa del error y rellena la lista con unas palabras alternativas.
+  - `getRandomWord()` devuelve una palabra aleatoria selecccionada entre las leídas anteriormente.
 
 ### Diagrama de clases
 
