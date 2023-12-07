@@ -14,7 +14,6 @@ public class RandomWordGenerator {
 
     private RandomWordGenerator() throws IOException {
         wordList = Files.readAllLines(FILE_PATH);
-        Runtime.getRuntime().addShutdownHook(new ThreadOff());
     }
 
     public static RandomWordGenerator getInstance() throws IOException {
@@ -28,19 +27,4 @@ public class RandomWordGenerator {
         int random = ThreadLocalRandom.current().nextInt(0, wordList.size());
         return wordList.get(random);
     }
-
-    private void close() {
-        instance = null;
-    }
-
-    private static class ThreadOff extends Thread {
-        @Override
-        public void run() {
-            if (instance != null) {
-                instance.close();
-            }
-        }
-    }
-
-
 }
