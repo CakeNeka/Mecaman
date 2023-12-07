@@ -21,7 +21,7 @@ public class Main {
 
     private static final int CONSUMER_THREADS = 4; // Número de hilos consumidores
     private static final int PRODUCER_THREADS = 9; // Número de hilos productores
-    private static final int QUEUE_SIZE = 1000;  // Tamaño máximo de la cola
+    private static final int QUEUE_SIZE = 100;  // Tamaño máximo de la cola
     private static final int DURATION = 30;     // El programa finaliza cuando pasen esta cantidad de segundos
     public static void main(String[] args) {
         ConcurrentLinkedQueue<String> wordsQueue = new ConcurrentLinkedQueue<>();
@@ -83,6 +83,7 @@ public class Main {
         try {
             Thread.sleep(Duration.ofSeconds(DURATION));
         } catch (InterruptedException e) {
+            e.getMessage();
         }
         executor.shutdown();
         wordManager.setActive(false);
