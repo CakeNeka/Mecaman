@@ -34,7 +34,7 @@ public class Main {
 
         String nombreFichero ="resources/historial/" + fileName;
         ConcurrentLinkedQueue<String> wordsQueue = new ConcurrentLinkedQueue<>();
-        WordManager wordManager = new WordManager(QUEUE_SIZE, wordsQueue);
+        WordManager wordManager = new WordManager(QUEUE_SIZE, wordsQueue, nombreFichero);
         Thread[] producers = new Thread[PRODUCER_THREADS];
         Thread[] consumers = new Thread[CONSUMER_THREADS];
 
