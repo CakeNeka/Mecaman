@@ -48,6 +48,8 @@ Estructura Elegida: ConcurrentLinkedQueue
  (Si el tamaño de la cola es más cercano al tamaño máximo, aumenta la prioridad de los consumidores.
  Si el tamaño de la cola es más cercano a 0, aumenta la prioridad de los productores)
 
+
+
  Parte del código que ejecuta el **hilo productor**:
  
 ```java
@@ -147,6 +149,11 @@ para la generación de palabras aleatorias.
    - Instancia y lanza los hilos productores (`WordProducer`) y consumidores (`WordConsumer`).
    - Utiliza un `ScheduledExecutorService` para ejecutar repetidamente un método que controla la prioridad de productores y consumidores.
    - Finaliza la ejecución del programa después de un tiempo determinado.
+ - [`MecamanStateLogger.java`](src/mecaman/MecamanStateLogger.java)
+   - Registra en un archivo de texto el estado del programa
+   - (tamaño de la cola, prioridad de los consumidores y prioridad de los productores).
+   - Escribe una nueva línea cada vez que se ejecuta el hilo que controla la prioridad
+
 
 ##### Paquete `mecaman.producerconsumer`
 
