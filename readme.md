@@ -228,8 +228,8 @@ classDiagram
 ```
 
 ---
-
-<pre align="center">
+<div align="center">
+<pre>
 ___  ___ _____ _____   ___  ___  ___  ___   _   _ 
 |  \/  ||  ___/  __ \ / _ \ |  \/  | / _ \ | \ | |
 | .  . || |__ | /  \// /_\ \| .  . |/ /_\ \|  \| |
@@ -237,4 +237,5 @@ ___  ___ _____ _____   ___  ___  ___  ___   _   _
 | |  | || |___| \__/\| | | || |  | || | | || |\  |
 \_|  |_/\____/ \____/\_| |_/\_|  |_/\_| |_/\_| \_/
 </pre>
+</div>
 <p align="right"><sub>Texto hecho con <a href="https://patorjk.com/software/taag/" target="_blank">Text to ASCII Art</a></sub></p>
