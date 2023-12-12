@@ -104,14 +104,14 @@ System.out.printf("%s escribe %s\n", consumer.getName(), new String(reversedWord
 
 | Metodo | Descripción | Tipo |
 | --- | --- | --- |
-| add(E e) | Inserta el elemento especificado al final de esta cola. | boolean | 
-| clear() | Elimina todos los elementos de esta cola. | void | 
-| element() | Recupera, pero no elimina, el encabezado (primer elemento) de esta cola. | E | 
-| contains(Object o) | Devuelve true si esta cola contiene el elemento especificado. | boolean | 
-| isEmpty() | Devuelve true si esta cola no contiene elementos. | boolean | 
-| offer(E e) | Inserta el elemento especificado al final de esta cola. | boolean | 
-| peek() | Recupera, pero no elimina, el encabezado (primer elemento) de esta cola. | E | 
-| remove() | Recupera y elimina el encabezado (primer elemento) de esta cola. | E | 
+| `add(E e)` | **Inserta** el elemento especificado al final de esta cola. | `boolean` | 
+| `clear()` | **Elimina** todos los elementos de esta cola. | `void` | 
+| `element()` | **Recupera**, pero no elimina, el encabezado (primer elemento) de esta cola. | `E` | 
+| `contains(Object o)` | Devuelve true si esta cola **contiene** el elemento especificado. | `boolean` | 
+| `isEmpty()` | Devuelve true si esta cola **no contiene elementos.** | `boolean` | 
+| `offer(E e)` | **Inserta** el elemento especificado al final de esta cola. | `boolean` | 
+| `peek()` | **Recupera**, pero **no elimina**, el encabezado (primer elemento) de esta cola. | `E` | 
+| `remove()` | **Recupera y elimina** el encabezado (primer elemento) de esta cola. | `E` | 
 
 
 ## 📁 Ficheros del proyecto
