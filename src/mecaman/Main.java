@@ -19,22 +19,22 @@ import java.util.concurrent.TimeUnit;
  */
 public class Main {
 
-    private static final int CONSUMER_THREADS = 4; // Número de hilos consumidores
-    private static final int PRODUCER_THREADS = 9; // Número de hilos productores
+    private static final int CONSUMER_THREADS = 5; // Número de hilos consumidores
+    private static final int PRODUCER_THREADS = 11; // Número de hilos productores
     private static final int QUEUE_SIZE = 100;  // Tamaño máximo de la cola
     private static final int DURATION = 30;     // El programa finaliza cuando pasen esta cantidad de segundos
     public static void main(String[] args) {
-        //Crea un fichero que tiene como nombre la fecha y hora en la que se ejecuto el programa, y que almacenara las palabras escritas
+        // Crea un fichero que tiene como nombre la fecha y hora en la que se ejecutó el programa, y que almacenara las palabras escritas
         // en el orden en el que las consume
 
         //damos formato a la fecha
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
-        String fileName = dtf.format(now);
+        String formattedDate = dtf.format(now);
 
-        String nombreFichero ="resources/historial/" + fileName;
+        String historyFileName ="resources/historial/" + formattedDate + ".txt";
         ConcurrentLinkedQueue<String> wordsQueue = new ConcurrentLinkedQueue<>();
-        WordManager wordManager = new WordManager(QUEUE_SIZE, wordsQueue, nombreFichero);
+        WordManager wordManager = new WordManager(QUEUE_SIZE, wordsQueue, historyFileName);
         Thread[] producers = new Thread[PRODUCER_THREADS];
         Thread[] consumers = new Thread[CONSUMER_THREADS];
 

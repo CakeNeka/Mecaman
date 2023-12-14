@@ -16,18 +16,19 @@ public class WordManager {
     private ConcurrentLinkedQueue<String> wordsQueue;
     private Semaphore producerSemaphore;
     private Semaphore consumerSemaphore;
-    private Semaphore mutex; // Utilizado para generar la palabra aleatoria
+    private Semaphore randomWordMutex; // Utilizado para generar la palabra aleatoria
+    private Semaphore fileWriterMutex; // Utilizado cuando los hilos escriben en el fichero 'log'
     private RandomWordGenerator wordGenerator;
-    private String nomFichero; //fichero en el que se guardaran las palabras que se consuman en la ejecucion
-    public WordManager(int maxSize, ConcurrentLinkedQueue<String> wordsQueue, String nomFichero) {
+    private String historyFilePath; //fichero en el que se guardaran las palabras que se consuman en la ejecucion
+    public WordManager(int maxSize, ConcurrentLinkedQueue<String> wordsQueue, String historyFilePath) {
         this.maxSize = maxSize;
         this.wordsQueue = wordsQueue;
         producerSemaphore = new Semaphore(maxSize);
         consumerSemaphore = new Semaphore(0);
-        mutex = new Semaphore(1);
+        randomWordMutex = new Semaphore(1);
+        fileWriterMutex = new Semaphore(1);
         wordGenerator = RandomWordGenerator.getInstance();
-        this.nomFichero = nomFichero;
-
+        this.historyFilePath = historyFilePath;
     }
 
     /**
@@ -70,22 +71,25 @@ public class WordManager {
                 reversedWordArray[j--] = word.charAt(i++);
                 Thread.sleep(20);
             }
-            //una vez procesada la palabra procede a escribirla en el fichero
+            // una vez procesada la palabra procede a escribirla en el fichero
             try{
-                File fichero = new File(this.nomFichero);
-                //Comprobamos si existe el fichero
-                if (!Files.exists(fichero.toPath())){
-                    //Si no existe, lo crea
-                    Files.createFile(fichero.toPath());
+                // Solo un hilo puede acceder a la vez al fichero
+                fileWriterMutex.acquire();
+                File historyFile = new File(this.historyFilePath);
+                // Comprobamos si existe el fichero
+                if (!Files.exists(historyFile.toPath())){
+                    // Si no existe, lo crea
+                    Files.createFile(historyFile.toPath());
                 }
-                FileWriter fw = new FileWriter(fichero, true);
+                FileWriter fw = new FileWriter(historyFile, true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                //Escribimos la palabra
+                // Escribimos la palabra
                 bw.write(new String(reversedWordArray));
-                //Añadimos un salto de linea
+                // Añadimos un salto de linea
                 bw.newLine();
-                //Cerramos el BufferedWriter
+                // Cerramos el BufferedWriter
                 bw.close();
+                fileWriterMutex.release();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -108,11 +112,11 @@ public class WordManager {
         String word = null;
         try {
             //Activamos el semaforo Mutex
-            mutex.acquire();
+            randomWordMutex.acquire();
             //Generamos la palabra llamando a wordGeneratore
             word = wordGenerator.getRandomWord();
             //Liberamos el semaforo
-            mutex.release();
+            randomWordMutex.release();
         } catch (InterruptedException e) {
             System.err.println("Error en la exclusión mutua");
         }
