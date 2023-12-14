@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="Generador de Logger CSV que contiene datos de ejecucion">
-      <change afterPath="$PROJECT_DIR$/resources/historial/2023-12-14_18-49-08" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/log.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/WordList.csv" beforeDir="false" afterPath="$PROJECT_DIR$/resources/WordList.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mecaman/producerconsumer/WordManager.java" afterDir="false" />
-    </list>
+    <list default="true" id="60e3a445-7215-47a0-ac99-1965bfbf9554" name="Changes" comment="Generador de Logger CSV que contiene datos de ejecucion" />
     <list id="9dcdc249-cbab-4901-98cd-18c9ca41a3dd" name="Changes by Angel" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
