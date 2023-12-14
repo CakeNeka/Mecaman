@@ -5,8 +5,15 @@
 Vamos a presentar utilizando el [readme.md](readme.md), esto es para organizar
 que parte va a decir cada uno.
 
-#### 1. Introducción
+#### 1. Introducción (_Manuel_)
+
+- Introducción libre
+- Quiénes somos
+- Qué vamos a hacer
+- Pronuncia `ConcurrentLinkedQueue`
+
 #### 2. Estructura utilizada
+
 - Explicación de la estructura (_Ángel Robles_)
 - Casos de uso (_Leo_)
 - Características de un problema que se resuelve con esta estructura. (_Leo_)
@@ -26,13 +33,25 @@ Explicar lo que hay al principio del readme.
    1. Instanciar hilos y cola
    2. Control de prioridad
    3. Control de tiempo de ejecución
-5. Clase `WordManager`
+5. Clase `WordManager` 
    1. Método del Productor
    2. Método del consumidor
+   3. Historial de palabras (_Ángel_ y _Manuel_)
+6. Clase `MecamanStateLogger` (_Ángel_ y _Manuel_) 
 
-#### 4. Conclusión
+#### 4. Conclusión (_Todos_)
 
-#### 5. Preguntas o dudas
+##### Conceptos aprendidos
+
+- Trabajo en grupo con control de versiones (git)
+- Organización del trabajo en equipo
+- Markdown para organización y readme
+- Patrón productor consumidor
+- **Estructuras concurrentes**
+
+#### 5. Preguntas o dudas (_Todos_)
+
+_¿Cómo se controla la duración y como se hace para que cola quede vacía al final?_ 
 
 ## ⛏ Tareas ⚒
 

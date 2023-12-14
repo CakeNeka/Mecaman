@@ -84,16 +84,17 @@ System.out.printf("%s escribe %s\n", consumer.getName(), new String(reversedWord
 
 ### ¿Qué es una cola?
 
- - Estructura de datos que almacena elementos en una lista antes de ser procesados y que permite acceder a los datos por uno de los dos extremos de la lista.
- - Los elementos de esta estructura suelen almacenar los elementos en forma *FIFO*.
+ - Estructura de datos donde la inserción (`push`) se realiza por un extremo y la extracción (`pull`) por el otro.
+ - Los elementos de esta estructura suelen almacenar los elementos en forma *FIFO* (Primero en entrar, primero en salir).
  - Las colas proporcionan operaciones de inserción, extracción e inspección.
- - Las colas en Java se implementan como una *Interfaz*, que extienden de *Collection*.
+ - Las colas en Java se implementan como una *Interfaz* (`Queue`), que extienden de `Collection`.
 
 ### Casos de uso
 
   - Características que tiene un problema para que pueda resolverse con esta estructura
     - No tiene que ser procesado inmediatamente, pero sí en su orden de llegada. Es decir, el primero que llega, primero que termina (FIFO).
     - Un recurso que se comparte con varios consumidores.
+    - Patrón **productor-consumidor**.
   - Ejemplos:
     - Servidor Web: Los servidores web utilizan colas para administrar las solicitudes entrantes de los clientes.
     - Colas de impresora: En los sistemas de impresión, las colas se utilizan para administrar el orden en que se
